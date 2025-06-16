@@ -132,8 +132,6 @@ function initDrop() {
   });
 }
 
-initDrop();
-
 
 
 function formatBytes(bytes, decimals = 2) {
@@ -152,6 +150,8 @@ let connected = false;
 
 
 document.addEventListener("DOMContentLoaded", () => {
+
+  initDrop();
 
   function UserComponent(vnode) {
 
