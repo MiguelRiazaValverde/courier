@@ -127,7 +127,6 @@ function initDrop() {
   });
 
   handler.onProgress(({ name, percent }) => {
-    console.log(`Subiendo ${name}: ${percent.toFixed(2)}%`);
     m.redraw();
   });
 }
