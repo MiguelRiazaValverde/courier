@@ -252,6 +252,7 @@ section.content {
 
 .form-error {
   color: var(--orange);
+  font-size: 0.9rem;
 }
 
 .form-submit {
