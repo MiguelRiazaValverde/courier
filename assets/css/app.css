@@ -250,6 +250,10 @@ section.content {
   box-shadow: 0 0 0 1px var(--other-blue);
 }
 
+.form-error {
+  color: var(--orange);
+}
+
 .form-submit {
   background-color: var(--other-blue);
   color: white;

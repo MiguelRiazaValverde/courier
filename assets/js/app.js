@@ -104,8 +104,7 @@ function createPeerConnection(channel, peerUsername, initiator) {
   peers[peerUsername].onFileRemoved(() => {
     m.redraw();
   });
-  peers[peerUsername].onFileProgress(data => {
-    console.log(data);
+  peers[peerUsername].onFileProgress(() => {
     m.redraw();
   });
 
@@ -146,7 +145,7 @@ function formatBytes(bytes, decimals = 2) {
 
 
 let connected = false;
-
+let error = "";
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -260,7 +259,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 await connectChannel(room, pass).then(() => {
                   connected = true;
                 }).catch(e => {
-                  console.log(e);
+                  error = e;
                 });
                 m.redraw();
               }
@@ -280,6 +279,8 @@ document.addEventListener("DOMContentLoaded", () => {
               type: "password",
               placeholder: "room-password"
             }),
+
+            error && m("div.form-error", {}, error),
 
             m("button.form-submit", { type: "submit" }, "Go")
           ])
