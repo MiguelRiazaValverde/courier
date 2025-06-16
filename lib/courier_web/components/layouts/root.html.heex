@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="csrf-token" content={get_csrf_token()} />
+    <.live_title default="Courier" suffix=" · P2P">
+      {assigns[:page_title]}
+    </.live_title>
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js">
+    </script>
+    <script src="https://unpkg.com/simple-peer/simplepeer.min.js">
+    </script>
+    <script src="https://unpkg.com/mithril/mithril.js">
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/file-icon-vectors@1.0.0/dist/file-icon-vectors.min.css"
+    />
+    <link phx-track-static rel="stylesheet" href={~p"/assets/app.css"} />
+    <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
+    </script>
+  </head>
+  <body>
+    {@inner_content}
+  </body>
+</html>
