@@ -93,11 +93,10 @@ export class DropHandler extends EventTarget {
 
     async handleDrop(event) {
         event.preventDefault();
-        const items = event.dataTransfer.items;
+        const entries = [...event.dataTransfer.items].map(f => f.webkitGetAsEntry());
         const resultFiles = [];
 
-        for (const item of items) {
-            const entry = item.webkitGetAsEntry();
+        for (const entry of entries) {
             if (!entry) continue;
 
             if (entry.isDirectory) {
